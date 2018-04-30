@@ -77,6 +77,26 @@ public class TwoSum {
 		return low;
 	}
 
+	private int indexPartition2(int[] numbers, int[] index, int frm, int end) {
+		int pivot = numbers[end];
+		int p = frm - 1;
+		for (int i = frm; i <= end; i++) {
+			if (numbers[i] <= pivot) {
+				swap(numbers, index, ++p, i);
+			}
+		}
+		return p;
+	}
+
+	private void swap(int[] numbers, int[] index, int i, int j) {
+		int tmp = numbers[i];
+		numbers[i] = numbers[j];
+		numbers[j] = tmp;
+		tmp = index[i];
+		index[i] = index[j];
+		index[j] = tmp;
+	}
+
 	public int[] twoSum3(int[] numbers, int target) {
 		int[] res = { -1, -1 };
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();

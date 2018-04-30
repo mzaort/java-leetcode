@@ -4,7 +4,7 @@ public class Sqrt {
 	public static void main(String[] args) {
 		System.out.println(Integer.MAX_VALUE * 2);
 	}
-	
+
 	public int sqrt(int x) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
@@ -38,9 +38,7 @@ public class Sqrt {
 			}
 		}
 
-		if (k == 1) {
-			return x;
-		}
+		if (k == 1) { return x; }
 
 		int i = 0;
 		int res = 0;
@@ -63,20 +61,16 @@ public class Sqrt {
 	}
 
 	public int sqrt3(int x) {
-		if (x < 0)
-			return -1;
+		if (x < 0) return -1;
 		int left = 0;
 		int right = x;
 		int mid = 0;
 		while (left <= right) {
 			mid = (right + left) / 2;
 			long temp = (long) mid * mid;
-			if (temp == x)
-				return mid;
-			else if (temp < x)
-				left = mid + 1;
-			else
-				right = mid - 1;
+			if (temp == x) return mid;
+			else if (temp < x) left = mid + 1;
+			else right = mid - 1;
 		}
 		return right;
 	}

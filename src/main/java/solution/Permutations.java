@@ -33,14 +33,12 @@ public class Permutations {
 			res.add(list);
 
 			int dest = len - 2;
-			for (; dest >= 0 && index[dest] > index[dest + 1]; dest--)
-				;
+			for (; dest >= 0 && index[dest] > index[dest + 1]; dest--);
 			if (dest == -1) {
 				break;
 			} else {
 				Arrays.sort(index, dest + 1, len);
-				swap(index, dest,
-						findInsertion(index, index[dest], dest + 1, len - 1));
+				swap(index, dest, findInsertion(index, index[dest], dest + 1, len - 1));
 			}
 		}
 		return res;

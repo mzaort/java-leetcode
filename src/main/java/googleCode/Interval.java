@@ -16,7 +16,7 @@ public class Interval {
 
 	@Override
 	public String toString() {
-		return "("+ start + ", " +end + ")";
+		return "(" + start + ", " + end + ")";
 	}
-	
+
 }

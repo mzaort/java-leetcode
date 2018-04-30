@@ -1,4 +1,5 @@
 package solutionReview;
+
 class ListNode {
 	int val;
 	ListNode next;

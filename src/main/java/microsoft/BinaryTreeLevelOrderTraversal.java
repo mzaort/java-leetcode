@@ -2,10 +2,10 @@ package microsoft;
 
 import java.util.*;
 
-public class BinaryTreeLevelOrderTraversal{
-	public ArrayList<ArrayList<TreeNode>> levelOrder(TreeNode root){
+public class BinaryTreeLevelOrderTraversal {
+	public ArrayList<ArrayList<TreeNode>> levelOrder(TreeNode root) {
 		ArrayList<ArrayList<TreeNode>> res = new ArrayList<ArrayList<TreeNode>>();
-		if(root == null) return res;
+		if (root == null) return res;
 
 		LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
 		queue.addLast(root);
@@ -14,19 +14,19 @@ public class BinaryTreeLevelOrderTraversal{
 		first = last = root;
 
 		ArrayList<TreeNode> list = null;
-		while((tmp = queue.pollFirst()) != null){
-			if(tmp == first){
+		while ((tmp = queue.pollFirst()) != null) {
+			if (tmp == first) {
 				list = new ArrayList<TreeNode>();
 			}
 			list.add(tmp);
 
-			if(tmp.left != null){
+			if (tmp.left != null) {
 				queue.addLast(tmp.left);
 			}
-			if(tmp.right != null){
+			if (tmp.right != null) {
 				queue.addLast(tmp.right);
 			}
-			if(tmp == last){
+			if (tmp == last) {
 				res.add(list);
 				first = queue.peekFirst();
 				last = queue.peekLast();

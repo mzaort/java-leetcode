@@ -10,19 +10,20 @@ public class DeleteKDigitsForMaxNumber {
 		System.out.println(dkdfmn.deleteKDigits2(new int[] { 1, 5, 0, 2, 9, 3 }, 3));
 		System.out.println(dkdfmn.deleteKDigits3(new int[] { 1, 5, 0, 2, 9, 3 }, 3));
 	}
-	
+
 	public BigInteger deleteKDigits3(int[] A, int k) {
 		assert (A.length > k && k > 0);
 		boolean[] deleted = new boolean[A.length];
-		for(; k > 0; k--){
+		for (; k > 0; k--) {
 			int i = find(deleted, 0);
-			for(int next = find(deleted, i + 1); next < A.length && A[i] >= A[next]; i = next, next = find(deleted, i + 1));
+			for (int next = find(deleted, i + 1); next < A.length
+					&& A[i] >= A[next]; i = next, next = find(deleted, i + 1));
 			deleted[i] = true;
 		}
-		
+
 		StringBuilder sb = new StringBuilder();
-		for(int i = 0; i < A.length; i++){
-			if(!deleted[i]) sb.append(A[i]);
+		for (int i = 0; i < A.length; i++) {
+			if (!deleted[i]) sb.append(A[i]);
 		}
 		return new BigInteger(sb.toString());
 	}
@@ -30,12 +31,13 @@ public class DeleteKDigitsForMaxNumber {
 	public BigInteger deleteKDigits2(int[] A, int k) {
 		assert (A.length > k && k > 0);
 		boolean[] deleted = new boolean[A.length];
-		for(; k > 0; k--){
+		for (; k > 0; k--) {
 			int i = find(deleted, 0);
-			for(int next = find(deleted, i + 1); next < A.length && A[i] >= A[next]; i = next, next = find(deleted, i + 1));
+			for (int next = find(deleted, i + 1); next < A.length
+					&& A[i] >= A[next]; i = next, next = find(deleted, i + 1));
 			deleted[i] = true;
 		}
-		
+
 		BigInteger sum = BigInteger.ZERO;
 		BigInteger base = BigInteger.ONE;
 		for (int i = deleted.length - 1; i >= 0; i--) {
@@ -49,7 +51,7 @@ public class DeleteKDigitsForMaxNumber {
 
 	private int find(boolean[] deleted, int i) {
 		int cur = i;
-		for(; cur < deleted.length && deleted[cur]; cur++);
+		for (; cur < deleted.length && deleted[cur]; cur++);
 		return cur;
 	}
 

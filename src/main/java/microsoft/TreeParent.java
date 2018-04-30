@@ -1,6 +1,7 @@
 package microsoft;
-public class TreeParent{
-	
+
+public class TreeParent {
+
 	public static void main(String[] args) {
 		TreeNode tn1 = new TreeNode(8);
 		TreeNode tn2 = new TreeNode(7);
@@ -22,24 +23,23 @@ public class TreeParent{
 		TreeParent tp = new TreeParent();
 		System.out.println(tp.commonParent(tn1, tn0, tn1).val);
 	}
-	
+
 	/**
-	 * µ±rootÊ÷°üº¬sºÍtÊ±£¬·µ»ØµÄÊÇËüÃÇ×î½ü¹«¹²¸¸½Úµã¡£
-	 * µ±Ö»°üº¬Ò»¸ö½áµãÊ±£¬·µ»ØµÄÊÇÕâ¸ö½áµã¡£
-	 * µ±¶¼²»°üº¬Ê±£¬·µ»Ønull¡£
+	 * ï¿½ï¿½rootï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½tÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£ ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡£
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nullï¿½ï¿½
 	 */
-	public TreeNode commonParent(TreeNode root, TreeNode s, TreeNode t){
-		if(root == null) return null;
-		if(root == s || root == t) return root;
+	public TreeNode commonParent(TreeNode root, TreeNode s, TreeNode t) {
+		if (root == null) return null;
+		if (root == s || root == t) return root;
 		TreeNode left = commonParent(root.left, s, t);
 		TreeNode right = commonParent(root.right, s, t);
-		if(left == null){
+		if (left == null) {
 			return right;
-		}else if(right == null){
+		} else if (right == null) {
 			return left;
-		}else{
+		} else {
 			return root;
 		}
 	}
-	
+
 }

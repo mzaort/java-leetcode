@@ -6,15 +6,13 @@ import java.util.Arrays;
 public class Sum4 {
 
 	public List<List<Integer>> fourSum(int[] num, int target) {
-		//assert(num.length >= 4);±íÊ¾´¦Àí µÄ¶ÔÏóÒ»¶¨Òª´óÓÚ4
+		// assert(num.length >= 4);ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½4
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		int len = num.length;
 
 		Arrays.sort(num);
-		for (int i = 0; i < len - 3 && num[i] <= target / 4; i = findNext(num,
-				i)) {
-			for (int j = i + 1; j < len - 2 && num[j] <= (target - num[i]) / 3; j = findNext(
-					num, j)) {
+		for (int i = 0; i < len - 3 && num[i] <= target / 4; i = findNext(num, i)) {
+			for (int j = i + 1; j < len - 2 && num[j] <= (target - num[i]) / 3; j = findNext(num, j)) {
 				int want = target - num[i] - num[j];
 				int k = j + 1, h = len - 1;
 				while (k < h) {

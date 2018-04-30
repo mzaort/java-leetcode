@@ -3,8 +3,7 @@ package interview2015Summer;
 import java.util.*;
 
 public class WordLadderII {
-	public List<List<String>> findLadders(String start, String end,
-			Set<String> dict) {
+	public List<List<String>> findLadders(String start, String end, Set<String> dict) {
 		List<List<String>> res = new ArrayList<>();
 
 		LinkedList<String> queue = new LinkedList<String>();
@@ -17,7 +16,7 @@ public class WordLadderII {
 		String fr = null;
 		while (null != (fr = queue.poll())) {
 			Integer d = dist.get(fr);
-			if (fr.equals(end)){
+			if (fr.equals(end)) {
 				generatePath(res, new ArrayList<String>(), pre, start, end);
 				return res;
 			}
@@ -30,12 +29,12 @@ public class WordLadderII {
 						String s = new String(cstr);
 						if (s.equals(end) || dict.contains(s)) {
 							Integer dt = dist.get(s);
-							if(dt == null){
+							if (dt == null) {
 								queue.offer(s);
 								dist.put(s, d + 1);
 								pre.put(s, new ArrayList<>());
 								pre.get(s).add(fr);
-							}else if(dt == d + 1){
+							} else if (dt == d + 1) {
 								pre.get(s).add(fr);
 							}
 						}
@@ -48,14 +47,14 @@ public class WordLadderII {
 		return res;
 	}
 
-	private void generatePath(List<List<String>> res,
-			List<String> list, Map<String, List<String>> pre, String start, String end) {
-		if(start.equals(end)){
+	private void generatePath(List<List<String>> res, List<String> list, Map<String, List<String>> pre, String start,
+			String end) {
+		if (start.equals(end)) {
 			list.add(start);
 			Collections.reverse(list);
 			res.add(list);
-		}else{
-			for(String e : pre.get(end)){
+		} else {
+			for (String e : pre.get(end)) {
 				List<String> lt = new ArrayList<>(list);
 				list.add(end);
 				generatePath(res, lt, pre, start, e);

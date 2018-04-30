@@ -4,23 +4,22 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class MaxPointsonaLine {
-	
+
 	public static void main(String[] args) {
 		MaxPointsonaLine mpl = new MaxPointsonaLine();
-		Point[] points = {new Point(2, 3), new Point(3, 3), new Point(-5, 3)};
+		Point[] points = { new Point(2, 3), new Point(3, 3), new Point(-5, 3) };
 		System.out.println(mpl.maxPoints3(points));
 	}
+
 	public int maxPoints(Point[] points) {
-		if (points.length <= 2)
-			return points.length;
+		if (points.length <= 2) return points.length;
 
 		int res = 0;
 		for (int i = 0; i < points.length; i++) {
 			HashMap<Double, Integer> map = new HashMap<Double, Integer>();
 			for (int j = i + 1; j < points.length; j++) {
 				Double k = points[i].x == points[j].x ? Double.NaN
-						: (points[i].y - points[j].y)
-								/ (points[i].x - points[j].x);
+						: (points[i].y - points[j].y) / (points[i].x - points[j].x);
 				if (map.get(k) == null) {
 					map.put(k, 2);
 				} else {
@@ -47,11 +46,10 @@ public class MaxPointsonaLine {
 				if (points[i].x == points[j].x && points[i].y == points[j].y) {
 					same++;
 				} else {
-					//DoubleÖÐ0.0ºÍ-0.0ÊÇ²»Í¬µÄ
+					// Doubleï¿½ï¿½0.0ï¿½ï¿½-0.0ï¿½Ç²ï¿½Í¬ï¿½ï¿½
 					double k = points[i].x == points[j].x ? Double.NaN
-							: ((double)points[i].y - points[j].y)
-									/ (points[i].x - points[j].x);
-					if(k == -0.0) k = 0.0;
+							: ((double) points[i].y - points[j].y) / (points[i].x - points[j].x);
+					if (k == -0.0) k = 0.0;
 					if (map.get(k) == null) {
 						map.put(k, 1);
 					} else {
@@ -63,12 +61,11 @@ public class MaxPointsonaLine {
 			for (Integer e : map.values()) {
 				if (max < e) max = e;
 			}
-			if (res < max + same + 1)
-				res = max + same + 1;
+			if (res < max + same + 1) res = max + same + 1;
 		}
 		return res;
 	}
-	
+
 	public int maxPoints3(Point[] points) {
 		int res = 0;
 		Integer v = null;
@@ -78,13 +75,12 @@ public class MaxPointsonaLine {
 			for (int j = i + 1; j < points.length; j++) {
 				if (points[i].x == points[j].x && points[i].y == points[j].y) {
 					same++;
-				} else if(points[i].x == points[j].x){
+				} else if (points[i].x == points[j].x) {
 					xsame++;
-				}else{
-					//DoubleÖÐ0.0ºÍ-0.0ÊÇ²»Í¬µÄ
-					double k = ((double)points[i].y - points[j].y)
-									/ (points[i].x - points[j].x);
-					if(k == -0.0) k = 0.0;
+				} else {
+					// Doubleï¿½ï¿½0.0ï¿½ï¿½-0.0ï¿½Ç²ï¿½Í¬ï¿½ï¿½
+					double k = ((double) points[i].y - points[j].y) / (points[i].x - points[j].x);
+					if (k == -0.0) k = 0.0;
 					map.put(k, (v = map.get(k)) == null ? 1 : v + 1);
 				}
 			}

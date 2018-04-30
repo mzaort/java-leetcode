@@ -1,8 +1,7 @@
 package solutionReview;
 
-
 public class WildcardMatching {
-	
+
 	public static void main(String[] args) {
 		WildcardMatching wm = new WildcardMatching();
 		System.out.println(wm.isMatch("a", "*?*"));
@@ -10,15 +9,14 @@ public class WildcardMatching {
 		System.out.println(wm.isMatch4("aaabbaabbaab", "*aabbaa*a*"));
 		System.out.println(wm.isMatch4("ab", ".*"));
 	}
-	
+
 	public boolean isMatch(String s, String p) {
 		return isMatch(s, 0, p, 0);
 	}
 
 	public boolean isMatch(String s, int sfrm, String p, int pfrm) {
 		if (sfrm == s.length()) {
-			for (; pfrm < p.length() && p.charAt(pfrm) == '*'; pfrm++)
-				;
+			for (; pfrm < p.length() && p.charAt(pfrm) == '*'; pfrm++);
 			return pfrm == p.length();
 		} else if (pfrm == p.length()) {
 			return false;
@@ -26,13 +24,11 @@ public class WildcardMatching {
 			char sch = s.charAt(sfrm);
 			char pch = p.charAt(pfrm);
 			if (pch == '*') {
-				for (; pfrm < p.length() && p.charAt(pfrm) == '*'; pfrm++)
-					;
+				for (; pfrm < p.length() && p.charAt(pfrm) == '*'; pfrm++);
 				if (pfrm == p.length()) {
 					return true;
 				} else {
-					return isMatch(s, sfrm, p, pfrm)
-							|| isMatch(s, sfrm + 1, p, pfrm - 1);
+					return isMatch(s, sfrm, p, pfrm) || isMatch(s, sfrm + 1, p, pfrm - 1);
 				}
 			} else if (pch == '?') {
 				return isMatch(s, sfrm + 1, p, pfrm + 1);
@@ -66,8 +62,7 @@ public class WildcardMatching {
 				char pch = p.charAt(j - 1);
 				if (pch == '*') {
 					int k = i;
-					for (; k >= 0 && mat[k][j - 1] == false; k--)
-						;
+					for (; k >= 0 && mat[k][j - 1] == false; k--);
 					mat[i][j] = (k >= 0);
 				} else if (pch == '?') {
 					mat[i][j] = mat[i - 1][j - 1];
@@ -101,8 +96,7 @@ public class WildcardMatching {
 			char sch = s.charAt(scur);
 			char pch = p.charAt(pcur);
 			if (pch == '*') {
-				for (; pcur < plen && p.charAt(pcur) == '*'; pcur++)
-					;
+				for (; pcur < plen && p.charAt(pcur) == '*'; pcur++);
 				if (pcur == plen) {
 					return true;
 				} else {
@@ -128,39 +122,38 @@ public class WildcardMatching {
 			}
 		}
 
-		for (; pcur < plen && p.charAt(pcur) == '*'; pcur++)
-			;
+		for (; pcur < plen && p.charAt(pcur) == '*'; pcur++);
 		return pcur == plen;
 
 	}
-	
-	public boolean isMatch4(String s, String p){
+
+	public boolean isMatch4(String s, String p) {
 		int slen = s.length();
 		int plen = p.length();
-		
+
 		int i = 0, j = 0;
 		int star = -1, sn = 0;
-		
-		while(i < slen){
-			while(j < plen && p.charAt(j) == '*'){
+
+		while (i < slen) {
+			while (j < plen && p.charAt(j) == '*') {
 				star = j++;
 				sn = i;
 			}
-			
-			if(j == plen || (p.charAt(j) != '?' && (p.charAt(j) != s.charAt(i)))){
-				if(star == -1){
+
+			if (j == plen || (p.charAt(j) != '?' && (p.charAt(j) != s.charAt(i)))) {
+				if (star == -1) {
 					return false;
-				}else{
+				} else {
 					i = ++sn;
 					j = star + 1;
 				}
-			}else{
+			} else {
 				i++;
 				j++;
 			}
 		}
-		
-		for(; j < plen && p.charAt(j) == '*'; j++);
+
+		for (; j < plen && p.charAt(j) == '*'; j++);
 		return j == plen;
 	}
 }

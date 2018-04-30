@@ -7,10 +7,10 @@ public class Permutation {
 
 	public static void main(String[] args) {
 		int[] arr = { 0, 1, 2, 3, 4 };
-		int[] arr2 = {2,2,3,3,4,4};
+		int[] arr2 = { 2, 2, 3, 3, 4, 4 };
 		Permutation p = new Permutation();
 		System.out.println(p.permutate(arr));
-		System.out.println(p.permutate(new int[]{}));
+		System.out.println(p.permutate(new int[] {}));
 		ArrayList<ArrayList<Integer>> res = p.permutateUnique(arr2);
 		System.out.println(res.size());
 	}
@@ -53,22 +53,21 @@ public class Permutation {
 		return permutateUnique(num, 0, num.length - 1);
 	}
 
-	private ArrayList<ArrayList<Integer>> permutateUnique(int[] num, int frm,
-			int end) {
+	private ArrayList<ArrayList<Integer>> permutateUnique(int[] num, int frm, int end) {
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-		if(frm > end){
+		if (frm > end) {
 			return res;
-		}else if(frm == end){
+		} else if (frm == end) {
 			ArrayList<Integer> list = new ArrayList<Integer>();
-			for(int e : num){
+			for (int e : num) {
 				list.add(e);
 			}
 			res.add(list);
 			return res;
-		}else{
+		} else {
 			res.addAll(permutateUnique(num, frm + 1, end));
-			for(int i = frm + 1; i <= end; i++){
-				if(num[i] != num[i - 1]){
+			for (int i = frm + 1; i <= end; i++) {
+				if (num[i] != num[i - 1]) {
 					swap(num, i, frm);
 					res.addAll(permutateUnique(num, frm + 1, end));
 					swap(num, i, frm);

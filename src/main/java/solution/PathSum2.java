@@ -3,7 +3,7 @@ package solution;
 import java.util.ArrayList;
 
 public class PathSum2 {
-	
+
 	public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
@@ -14,11 +14,11 @@ public class PathSum2 {
 	}
 
 	private void pathSum(TreeNode root, int sum, ArrayList<Integer> list, ArrayList<ArrayList<Integer>> res) {
-		if (root != null){
+		if (root != null) {
 			list.add(root.val);
 			if (root.left == null) {
 				if (root.right == null) {
-					if(sum == root.val){
+					if (sum == root.val) {
 						res.add(list);
 					}
 				} else {
@@ -30,7 +30,7 @@ public class PathSum2 {
 				} else {
 					ArrayList<Integer> list1 = new ArrayList<Integer>();
 					ArrayList<Integer> list2 = new ArrayList<Integer>();
-					for(Integer e:list){
+					for (Integer e : list) {
 						list1.add(e);
 						list2.add(e);
 					}

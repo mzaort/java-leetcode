@@ -1,38 +1,37 @@
 package solutionExtra;
 
 public class ValidIPAddress {
-	
+
 	public static void main(String[] args) {
 		ValidIPAddress va = new ValidIPAddress();
 		System.out.println(va.transform("54.34.24.32"));
 	}
-	
+
 	/**
 	 * @param IP
-	 * @return ¸ø¶¨Ò»¸öµã·ÖIPµØÖ·±íÊ¾£¬Ð´¸ö³ÌÐò°ÑËü×ª»»³ÉÏàÓ¦µÄ32Î»µÄÎÞ·ûºÅÕûÊý²¢Êä³ö£¬Èç¹ûÊäÈë²»ÊÇºÏ·¨Êý¾Ý£¬¾Í·µ»Ø0.
+	 * @return ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·ï¿½ï¿½Ê¾ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½32Î»ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ÇºÏ·ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½Í·ï¿½ï¿½ï¿½0.
 	 */
-	public int transform(String IP){
+	public int transform(String IP) {
 		int ilen = IP.length();
-		if(ilen < 7) return 0;
-		
-		for(int i = 0; i < ilen; i++){
+		if (ilen < 7) return 0;
+
+		for (int i = 0; i < ilen; i++) {
 			char ch = IP.charAt(i);
-			if(!(ch == '.' || (ch >= '0' && ch <= '9'))) return 0;
+			if (!(ch == '.' || (ch >= '0' && ch <= '9'))) return 0;
 		}
-		
+
 		String[] str = IP.split("\\.");
 		int len = str.length;
-		if(len != 4) return 0;
-		
-		
+		if (len != 4) return 0;
+
 		int res = 0;
-		for(int i = len - 1; i >= 0; i--){
+		for (int i = len - 1; i >= 0; i--) {
 			res = res << 8;
-			if(str[i].length() > 3) return 0;
+			if (str[i].length() > 3) return 0;
 			int tmp = Integer.parseInt(str[i]);
-			if(str[i].equals("" + tmp) && tmp >= 0 && tmp <= 255){
+			if (str[i].equals("" + tmp) && tmp >= 0 && tmp <= 255) {
 				res += tmp;
-			}else{
+			} else {
 				return 0;
 			}
 		}

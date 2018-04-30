@@ -13,9 +13,7 @@ public class Pearl {
 	public int lengthOfAllColors(int[] arr, int n) {
 		assert (isValid(arr, n));
 
-		if (n == 1){
-			return 1;
-		}
+		if (n == 1) { return 1; }
 
 		int len = arr.length;
 		int[] f = new int[len];
@@ -30,8 +28,7 @@ public class Pearl {
 			} else {
 				f[i] = minExpand(arr, i, n);
 				int tmp = (i - f[i] + len + 1) % len;
-				if (tmp < res)
-					res = tmp;
+				if (tmp < res) res = tmp;
 			}
 		}
 		return res;
@@ -39,8 +36,7 @@ public class Pearl {
 
 	private boolean isValid(int[] arr, int n) {
 		int len = arr.length;
-		if (!(n > 0 && len >= n))
-			return false;
+		if (!(n > 0 && len >= n)) return false;
 		boolean[] mask = new boolean[n];
 		Arrays.fill(mask, false);
 		int num = 0;
@@ -76,20 +72,20 @@ public class Pearl {
 		}
 		return i;
 	}
-	
-	public int lengthOfAllColors2(int[] A, int n){
+
+	public int lengthOfAllColors2(int[] A, int n) {
 		int L = A.length;
 		int last = -1, match = n, min = L;
 		int[] f = new int[n];
-		for(int i = 0, j = 0; j < 2 * L - 1; j++, i = (i + 1) % L){
+		for (int i = 0, j = 0; j < 2 * L - 1; j++, i = (i + 1) % L) {
 			f[A[i]]++;
-			if(f[A[i]] == 1) match--;
-			while(last < L - 1 && f[A[last + 1]] > 1){
+			if (f[A[i]] == 1) match--;
+			while (last < L - 1 && f[A[last + 1]] > 1) {
 				f[A[last + 1]]--;
 				last++;
 			}
-			if(match == 0) min = Math.min(min, (i - last + L) % L);
-			if(last == L - 1) break;
+			if (match == 0) min = Math.min(min, (i - last + L) % L);
+			if (last == L - 1) break;
 		}
 		return min;
 	}

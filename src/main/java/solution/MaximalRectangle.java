@@ -4,8 +4,7 @@ public class MaximalRectangle {
 	public int WrongmaximalRectangle(char[][] matrix) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
-			return 0;
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
 
 		int x1, y1, x2, y2;
 		x1 = y1 = Integer.MAX_VALUE;
@@ -16,14 +15,10 @@ public class MaximalRectangle {
 			for (int j = 0; j < matrix[0].length; j++) {
 				if (matrix[i][j] == '1') {
 					flag = true;
-					if (i < x1)
-						x1 = i;
-					if (i > x2)
-						x2 = i;
-					if (j < y1)
-						y1 = j;
-					if (j > y2)
-						y2 = j;
+					if (i < x1) x1 = i;
+					if (i > x2) x2 = i;
+					if (j < y1) y1 = j;
+					if (j > y2) y2 = j;
 				}
 			}
 		}
@@ -37,8 +32,7 @@ public class MaximalRectangle {
 	}
 
 	public int maximalRectangle(char[][] matrix) {
-		if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
-			return 0;
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
 
 		int hx = matrix.length, hy = matrix[0].length;
 		int[][] reach = new int[hx][hy];
@@ -67,10 +61,9 @@ public class MaximalRectangle {
 		}
 		return largest;
 	}
-	
+
 	public int maximalRectangle2(char[][] matrix) {
-		if (matrix == null || matrix.length == 0 || matrix[0].length == 0)
-			return 0;
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
 
 		int hx = matrix.length, hy = matrix[0].length;
 		int[][] reach = new int[hx][hy];
@@ -80,11 +73,11 @@ public class MaximalRectangle {
 				reach[i][j] = matrix[i][j] == '1' ? reach[i][j + 1] + 1 : 0;
 			}
 		}
-		
+
 		boolean[][] flag = new boolean[hx][hy];
-		for(int i = 0; i < hx; i++){
-			for(int j = 0; j < hy; j++){
-				flag[i][j] = matrix[i][j] == '1'?true:false; 
+		for (int i = 0; i < hx; i++) {
+			for (int j = 0; j < hy; j++) {
+				flag[i][j] = matrix[i][j] == '1' ? true : false;
 			}
 		}
 

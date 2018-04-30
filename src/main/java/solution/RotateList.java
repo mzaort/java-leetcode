@@ -4,9 +4,9 @@ public class RotateList {
 	public ListNode rotateRight(ListNode head, int n) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if(n == 0) return head;
-		if(head == null || head.next == null) return head;
-		
+		if (n == 0) return head;
+		if (head == null || head.next == null) return head;
+
 		ListNode p, q = null, r;
 
 		int length = 0;
@@ -15,7 +15,7 @@ public class RotateList {
 			q = p;
 			p = p.next;
 			length++;
-		}		
+		}
 		q.next = head;
 
 		n = n % length;
@@ -29,7 +29,7 @@ public class RotateList {
 
 		r = p.next;
 		p.next = null;
-		
+
 		return r;
 
 	}

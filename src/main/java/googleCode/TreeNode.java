@@ -25,9 +25,9 @@ public class TreeNode {
 			return res;
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		TreeNode res = TreeNode.create(new int[]{1, 2, 4, '#', '#', 5, '#', '#', 3, '#', '#'});
+		TreeNode res = TreeNode.create(new int[] { 1, 2, 4, '#', '#', 5, '#', '#', 3, '#', '#' });
 		System.out.println(res.val);
 	}
 }

@@ -16,13 +16,10 @@ public class RestoreIPAddress {
 
 	private ArrayList<String> restoreIpAddresses(String s, int i) {
 		ArrayList<String> list = new ArrayList<String>();
-		if (s.length() < i)
-			return list;
+		if (s.length() < i) return list;
 
 		if (i == 1) {
-			if (s.charAt(0) == '0' && s.length() > 1) {
-				return list;
-			}
+			if (s.charAt(0) == '0' && s.length() > 1) { return list; }
 			if (s.length() < 4 && Integer.parseInt(s) <= 255) {
 				list.add(s);
 			}
@@ -38,9 +35,7 @@ public class RestoreIPAddress {
 			}
 		}
 
-		if (s.charAt(0) == '0') {
-			return list;
-		}
+		if (s.charAt(0) == '0') { return list; }
 
 		if (s.length() > 2) {
 			ArrayList<String> alist2 = restoreIpAddresses(s.substring(2), i - 1);
@@ -54,8 +49,7 @@ public class RestoreIPAddress {
 		if (s.length() > 3) {
 			String s2 = s.substring(0, 3);
 			if (Integer.parseInt(s2) <= 255) {
-				ArrayList<String> alist3 = restoreIpAddresses(s.substring(3),
-						i - 1);
+				ArrayList<String> alist3 = restoreIpAddresses(s.substring(3), i - 1);
 				if (alist3.size() != 0) {
 					for (String e : alist3) {
 						list.add(s.substring(0, 3) + "." + e);

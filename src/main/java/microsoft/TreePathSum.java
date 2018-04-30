@@ -25,8 +25,7 @@ public class TreePathSum {
 
 	public ArrayList<ArrayList<TreeNode>> pathSum(TreeNode root, int target) {
 		ArrayList<ArrayList<TreeNode>> res = new ArrayList<ArrayList<TreeNode>>();
-		if (root == null)
-			return res;
+		if (root == null) return res;
 
 		if (root.left == null && root.right == null) {
 			if (root.val == target) {
@@ -35,16 +34,14 @@ public class TreePathSum {
 				res.add(tmp);
 			}
 		} else {
-			ArrayList<ArrayList<TreeNode>> left = pathSum(root.left, target
-					- root.val);
+			ArrayList<ArrayList<TreeNode>> left = pathSum(root.left, target - root.val);
 			for (ArrayList<TreeNode> e : left) {
 				ArrayList<TreeNode> tmp = new ArrayList<TreeNode>();
 				tmp.add(root);
 				tmp.addAll(e);
 				res.add(tmp);
 			}
-			ArrayList<ArrayList<TreeNode>> right = pathSum(root.right, target
-					- root.val);
+			ArrayList<ArrayList<TreeNode>> right = pathSum(root.right, target - root.val);
 			for (ArrayList<TreeNode> e : right) {
 				ArrayList<TreeNode> tmp = new ArrayList<TreeNode>();
 				tmp.add(root);

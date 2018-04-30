@@ -17,14 +17,10 @@ public class SumNM {
 	}
 
 	public int numOfNM(int n, int m, int k) {
-		if (m == 0)
-			return 1;
-		if (k == 0)
-			return 0;
-		if (n > m)
-			n = m;
-		if (k > n)
-			k = n;
+		if (m == 0) return 1;
+		if (k == 0) return 0;
+		if (n > m) n = m;
+		if (k > n) k = n;
 		return numOfNM(n, m - k, k - 1) + numOfNM(n, m, k - 1);
 	}
 
@@ -39,20 +35,15 @@ public class SumNM {
 			res.add(null);
 			return res;
 		}
-		if (k == 0) {
-			return res;
-		}
-		if (n > m)
-			n = m;
-		if (k > n)
-			k = n;
+		if (k == 0) { return res; }
+		if (n > m) n = m;
+		if (k > n) k = n;
 		res.addAll(listOfNM(n, m, k - 1));
 
 		ArrayList<ArrayList<Integer>> tmp = listOfNM(n, m - k, k - 1);
 		for (ArrayList<Integer> e : tmp) {
 			ArrayList<Integer> list = new ArrayList<Integer>();
-			if (e != null)
-				list.addAll(e);
+			if (e != null) list.addAll(e);
 			list.add(k);
 			res.add(list);
 		}

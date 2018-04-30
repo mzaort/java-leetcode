@@ -43,7 +43,7 @@ class TrieNodeWithParent {
 	public void setEnd(char ch) {
 		isEnds[char2index(ch)] = true;
 	}
-	
+
 	public void resetEnd(char ch) {
 		isEnds[char2index(ch)] = false;
 	}
@@ -54,27 +54,27 @@ class TrieNodeWithParent {
 
 	public boolean canBeDelete() {
 		boolean isEnd = false;
-		for(boolean e : isEnds){
-			if(e){
+		for (boolean e : isEnds) {
+			if (e) {
 				isEnd = true;
 				break;
 			}
 		}
-		return !isEnd && Arrays.asList(childs).stream().allMatch(e -> e == null) ;
+		return !isEnd && Arrays.asList(childs).stream().allMatch(e -> e == null);
 	}
 
 	public void delete(TrieNodeWithParent current) {
-		if(current == null || current.parent != this) return;
-		for(int i = 0; i < MAX; i++){
-			if(childs[i] == current) deleteChild(i);
+		if (current == null || current.parent != this) return;
+		for (int i = 0; i < MAX; i++) {
+			if (childs[i] == current) deleteChild(i);
 		}
 	}
 
 	private void deleteChild(int i) {
 		childs[i] = null;
 	}
-	
-	public void deleteChild(char ch){
+
+	public void deleteChild(char ch) {
 		deleteChild(char2index(ch));
 	}
 }
@@ -114,12 +114,12 @@ class TrieWithParent {
 	public boolean startsWith(String prefix) {
 		return null != findTargetNode(prefix);
 	}
-	
-	public boolean delete(String word){
+
+	public boolean delete(String word) {
 		TrieNodeWithParent current = findTargetNode(word);
-		if(current == null || word.length() <= 0 || !current.isEnd(word.charAt(word.length() - 1))) return false;
+		if (current == null || word.length() <= 0 || !current.isEnd(word.charAt(word.length() - 1))) return false;
 		current.resetEnd(word.charAt(word.length() - 1));
-		while(current.parent != null && current.canBeDelete()){
+		while (current.parent != null && current.canBeDelete()) {
 			current.parent.delete(current);
 		}
 		return true;

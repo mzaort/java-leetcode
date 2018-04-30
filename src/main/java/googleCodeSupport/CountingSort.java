@@ -10,8 +10,7 @@ public class CountingSort {
 		cs.sort2(A, 8);
 		Arrays.sort(B);
 		for (int i = 0; i < A.length; i++) {
-			if (A[i] != B[i])
-				System.out.println("wrong");
+			if (A[i] != B[i]) System.out.println("wrong");
 		}
 		System.out.println("right");
 	}
@@ -35,15 +34,15 @@ public class CountingSort {
 	public void sort2(int[] A, int k) {
 		int[] n = new int[k];
 		Arrays.fill(n, 0);
-		for (int e : A){
+		for (int e : A) {
 			n[e]++;
 		}
-		for(int i = 1; i < k; i++){
+		for (int i = 1; i < k; i++) {
 			n[i] += n[i - 1];
 		}
-		
+
 		int[] B = new int[A.length];
-		for(int i = A.length - 1; i >= 0; i--){
+		for (int i = A.length - 1; i >= 0; i--) {
 			B[--n[A[i]]] = A[i];
 		}
 		System.arraycopy(B, 0, A, 0, A.length);

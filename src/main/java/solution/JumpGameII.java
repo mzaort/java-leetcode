@@ -16,16 +16,16 @@ public class JumpGameII {
 			} else {
 				if (A[i] == 0) {
 					step[i] = Integer.MAX_VALUE;
-				}else{
+				} else {
 					int min = step[i + 1];
 					for (int j = i + 2; j <= i + A[i]; j++) {
 						if (min > step[j]) {
 							min = step[j];
 						}
 					}
-					if(min == Integer.MAX_VALUE){
+					if (min == Integer.MAX_VALUE) {
 						step[i] = Integer.MAX_VALUE;
-					}else{
+					} else {
 						step[i] = min + 1;
 					}
 				}

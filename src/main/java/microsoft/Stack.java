@@ -44,18 +44,18 @@ public class Stack {
 		}
 		return value[min[top]];
 	}
-	
+
 	public static void main(String[] args) {
 		Stack stk = new Stack(100);
-		for(int i = 0; i < 5; i++){
-			stk.push((int)(Math.random()*100));
+		for (int i = 0; i < 5; i++) {
+			stk.push((int) (Math.random() * 100));
 			System.out.println(stk.value[stk.top]);
 		}
-		
-		for(int i = 0; i < 4; i++){
+
+		for (int i = 0; i < 4; i++) {
 			System.out.println(stk.min());
 			stk.pop();
 		}
 	}
-	
+
 }

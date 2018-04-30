@@ -1,6 +1,8 @@
 package googleCode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Sum3 {
 	public List<List<Integer>> threeSum(int[] num) {
@@ -27,7 +29,7 @@ public class Sum3 {
 		}
 		return res;
 	}
-	
+
 	public List<List<Integer>> threeSum2(int[] num) {
 		List<List<Integer>> res = new ArrayList<>();
 		Arrays.sort(num);
@@ -51,15 +53,13 @@ public class Sum3 {
 
 	private int previous(int[] num, int end) {
 		int res = end - 1;
-		for (; res >= 0 && num[res] == num[end]; res--)
-			;
+		for (; res >= 0 && num[res] == num[end]; res--);
 		return res;
 	}
 
 	private int next(int[] num, int frm) {
 		int res = frm + 1;
-		for (; res < num.length && num[res] == num[frm]; res++)
-			;
+		for (; res < num.length && num[res] == num[frm]; res++);
 		return res;
 	}
 }

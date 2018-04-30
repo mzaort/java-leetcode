@@ -32,7 +32,7 @@ public class AddandSearchWord {
 		static final char BASE = 'a';
 		static final int MAX = 'z' - 'a' + 1;
 		final char DOT = '.';
-		
+
 		TrieNode[] childs;
 		boolean isEnd;
 
@@ -41,15 +41,15 @@ public class AddandSearchWord {
 		}
 
 		public boolean search(String word) {
-			if(word.length() == 0) return isEnd();
+			if (word.length() == 0) return isEnd();
 			char ch = word.charAt(0);
 			String remain = word.substring(1);
-			if(ch == DOT){
-				for(TrieNode e : childs){
-					if(e != null && e.search(remain)) return true;
+			if (ch == DOT) {
+				for (TrieNode e : childs) {
+					if (e != null && e.search(remain)) return true;
 				}
 				return false;
-			}else{
+			} else {
 				TrieNode p = getChild(ch);
 				return p != null && p.search(remain);
 			}

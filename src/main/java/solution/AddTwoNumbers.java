@@ -32,7 +32,7 @@ public class AddTwoNumbers {
 			tail = tail.next;
 			l2 = l2.next;
 		}
-		if(surplus != 0){
+		if (surplus != 0) {
 			tail.next = new ListNode(surplus);
 		}
 		return res.next;

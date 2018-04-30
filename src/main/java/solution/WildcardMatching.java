@@ -23,9 +23,7 @@ public class WildcardMatching {
 				return true;
 			} else {
 				for (int k = j; k < plen; k++) {
-					if (p.charAt(k) != '*') {
-						return false;
-					}
+					if (p.charAt(k) != '*') { return false; }
 				}
 				return true;
 			}
@@ -47,15 +45,13 @@ public class WildcardMatching {
 					} else {
 						char nch = p.charAt(j + 1);
 						if (nch == '?' || nch == sch) {
-							return isMatch(s, i + 1, p, j + 2)
-									|| isMatch(s, i + 1, p, j);
+							return isMatch(s, i + 1, p, j + 2) || isMatch(s, i + 1, p, j);
 						} else {
 							int index = s.indexOf(nch, i + 1);
 							if (index == -1) {
 								return false;
 							} else {
-								return isMatch(s, index + 1, p, j + 2)
-										|| isMatch(s, index + 1, p, j);
+								return isMatch(s, index + 1, p, j + 2) || isMatch(s, index + 1, p, j);
 							}
 						}
 					}
@@ -80,9 +76,7 @@ public class WildcardMatching {
 				return true;
 			} else {
 				for (int i = 0; i < plen; i++) {
-					if (p.charAt(i) != '*') {
-						return false;
-					}
+					if (p.charAt(i) != '*') { return false; }
 				}
 				return true;
 			}
@@ -134,9 +128,7 @@ public class WildcardMatching {
 				return true;
 			} else {
 				for (int i = 0; i < plen; i++) {
-					if (p.charAt(i) != '*') {
-						return false;
-					}
+					if (p.charAt(i) != '*') { return false; }
 				}
 				return true;
 			}
@@ -151,8 +143,7 @@ public class WildcardMatching {
 						si++;
 						pi++;
 					} else if (pch == '*') {
-						for (; pi < plen - 1 && p.charAt(pi + 1) == '*'; pi++)
-							;
+						for (; pi < plen - 1 && p.charAt(pi + 1) == '*'; pi++);
 						star = pi;
 						if (pi == plen - 1) {
 							return true;
@@ -190,9 +181,7 @@ public class WildcardMatching {
 					} else {
 						if (si == slen) {
 							for (; pi < plen; pi++) {
-								if (p.charAt(pi) != '*') {
-									return false;
-								}
+								if (p.charAt(pi) != '*') { return false; }
 							}
 							return true;
 						}
@@ -220,8 +209,7 @@ public class WildcardMatching {
 			}
 
 			if (j == m || (p.charAt(j) != s.charAt(i) && p.charAt(j) != '?')) {
-				if (star < 0)
-					return false;
+				if (star < 0) return false;
 				else {
 					j = star + 1;
 					i = ++sp; // * match 1 character

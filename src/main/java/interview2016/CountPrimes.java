@@ -29,9 +29,7 @@ public class CountPrimes {
 	private boolean isPrime(int n) {
 		assert (n >= 2);
 		for (int i = 2; i < n; i++) {
-			if (n % i == 0) {
-				return false;
-			}
+			if (n % i == 0) { return false; }
 		}
 		return true;
 	}
@@ -39,9 +37,7 @@ public class CountPrimes {
 	private boolean isPrime2(int n) {
 		assert (n >= 2);
 		for (int i = 2, L = (int) Math.sqrt(n); i <= L; i++) {
-			if (n % i == 0) {
-				return false;
-			}
+			if (n % i == 0) { return false; }
 		}
 		return true;
 	}
@@ -70,14 +66,9 @@ public class CountPrimes {
 			set.add(i);
 		}
 		TreeSet<Integer> cset = new TreeSet<>(set);
-		set.stream()
-				.filter(cset::contains)
-				.forEach(
-						e -> {
-							cset.removeAll(cset.tailSet(e).stream()
-									.filter(t -> cset.contains(t * e))
-									.collect(Collectors.toList()));
-						});
+		set.stream().filter(cset::contains).forEach(e -> {
+			cset.removeAll(cset.tailSet(e).stream().filter(t -> cset.contains(t * e)).collect(Collectors.toList()));
+		});
 		return set.size();
 	}
 }

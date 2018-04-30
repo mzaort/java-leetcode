@@ -17,8 +17,7 @@ public class PathSum {
 				if (root.right == null) {
 					return hasPathSum(root.left, sum - root.val);
 				} else {
-					return hasPathSum(root.left, sum - root.val)
-							|| hasPathSum(root.right, sum - root.val);
+					return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
 				}
 			}
 		}

@@ -6,17 +6,18 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Sorting {
-	public static void main(String[] args) throws FileNotFoundException{
-		String[] infile = {"test.in", "C-small-practice.in", "C-large-practice.in"};
-		String[] outfile = {"test.out", "C-small-practice.out", "C-large-practice.out"};
+	public static void main(String[] args) throws FileNotFoundException {
+		String[] infile = { "test.in", "C-small-practice.in", "C-large-practice.in" };
+		String[] outfile = { "test.out", "C-small-practice.out", "C-large-practice.out" };
 		Scanner sin = new Scanner(new File(infile[2]));
 		PrintWriter pwr = new PrintWriter(new File(outfile[2]));
 		Sorting st = new Sorting();
 		int cnt = sin.nextInt();
-		for(int k = 1; k <= cnt; k++){
+		for (int k = 1; k <= cnt; k++) {
 			int n = sin.nextInt();
 			int[] values = new int[n];
-			for(int i = 0; i < n; i++) values[i] = sin.nextInt();
+			for (int i = 0; i < n; i++)
+				values[i] = sin.nextInt();
 			st.sort(values);
 			String res = st.toString(values);
 			pwr.println("Case #" + k + ": " + res);
@@ -27,7 +28,8 @@ public class Sorting {
 
 	public String toString(int[] values) {
 		StringBuilder sb = new StringBuilder();
-		for(int e : values) sb.append(e + " ");
+		for (int e : values)
+			sb.append(e + " ");
 		return sb.length() == 0 ? "" : new String(sb.substring(0, sb.length() - 1));
 	}
 

@@ -7,9 +7,8 @@ public class NQueensII {
 	}
 
 	private int dfs(int[] board, int cur) {
-		if (cur == board.length)
-			return 1;
-		
+		if (cur == board.length) return 1;
+
 		int res = 0;
 		for (int i = 0; i < board.length; i++) {
 			if (!isCollided(board, cur, i)) {
@@ -22,9 +21,7 @@ public class NQueensII {
 
 	private boolean isCollided(int[] board, int i, int j) {
 		for (int k = 0; k < i; k++) {
-			if (board[k] == j || j - i == board[k] - k || j + i == board[k] + k) {
-				return true;
-			}
+			if (board[k] == j || j - i == board[k] - k || j + i == board[k] + k) { return true; }
 		}
 		return false;
 	}

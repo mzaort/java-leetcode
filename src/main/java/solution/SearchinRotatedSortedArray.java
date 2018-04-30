@@ -2,7 +2,7 @@ package solution;
 
 public class SearchinRotatedSortedArray {
 	public static void main(String[] args) {
-		int[] a = { 3, 1};
+		int[] a = { 3, 1 };
 		System.out.println(new SearchinRotatedSortedArray().search(a, 1));
 	}
 
@@ -19,8 +19,7 @@ public class SearchinRotatedSortedArray {
 	}
 
 	private int search(int[] a, int i, int j, int target) {
-		if (i > j)
-			return -1;
+		if (i > j) return -1;
 		int mid = (i + j) >> 1;
 		if (a[mid] == target) {
 			return mid;

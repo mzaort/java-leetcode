@@ -11,8 +11,11 @@ public class ValidNumber {
 		NUM_INPUTS // 6
 	};
 
-	public static final int[][] transitionTable = { 
-			{ -1, 0, 3, 1, 2, -1 }, // next states for state 0
+	public static final int[][] transitionTable = { { -1, 0, 3, 1, 2, -1 }, // next
+																			// states
+																			// for
+																			// state
+																			// 0
 			{ -1, 8, -1, 1, 4, 5 }, // next states for state 1
 			{ -1, -1, -1, 4, -1, -1 }, // next states for state 2
 			{ -1, -1, -1, 1, 2, -1 }, // next states for state 3
@@ -28,21 +31,15 @@ public class ValidNumber {
 		for (int i = 0; i < str.length(); i++) {
 			char ch = str.charAt(i);
 			InputType inputType = InputType.INVALID;
-			if (Character.isSpaceChar(ch))
-				inputType = InputType.SPACE;
-			else if (ch == '+' || ch == '-')
-				inputType = InputType.SIGN;
-			else if (Character.isDigit(ch))
-				inputType = InputType.DIGIT;
-			else if (ch == '.')
-				inputType = InputType.DOT;
-			else if (ch == 'e' || ch == 'E')
-				inputType = InputType.EXPONENT;
+			if (Character.isSpaceChar(ch)) inputType = InputType.SPACE;
+			else if (ch == '+' || ch == '-') inputType = InputType.SIGN;
+			else if (Character.isDigit(ch)) inputType = InputType.DIGIT;
+			else if (ch == '.') inputType = InputType.DOT;
+			else if (ch == 'e' || ch == 'E') inputType = InputType.EXPONENT;
 			// Get next state from current state and input symbol
 			state = transitionTable[state][inputType.ordinal()];
 			// Invalid input
-			if (state == -1)
-				return false;
+			if (state == -1) return false;
 		}
 		// If the current state belongs to one of the accepting (final) states,
 		// then the number is valid

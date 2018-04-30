@@ -16,9 +16,7 @@ public class RegularExpressionMatching {
 			if (j == plen) {
 				return true;
 			} else {
-				for (; j < plen - 1 && p.charAt(j) != '*'
-						&& p.charAt(j + 1) == '*'; j += 2)
-					;
+				for (; j < plen - 1 && p.charAt(j) != '*' && p.charAt(j + 1) == '*'; j += 2);
 				return j == plen;
 			}
 		} else {
@@ -33,8 +31,7 @@ public class RegularExpressionMatching {
 					char pchn = p.charAt(j + 1);
 					if (pchn == '*') {
 						if (pch == '.' || pch == sch) {
-							return isMatch(s, i, slen, p, j + 2, plen)
-									|| isMatch(s, i + 1, slen, p, j, plen);
+							return isMatch(s, i, slen, p, j + 2, plen) || isMatch(s, i + 1, slen, p, j, plen);
 						} else {
 							return isMatch(s, i, slen, p, j + 2, plen);
 						}
@@ -55,23 +52,17 @@ public class RegularExpressionMatching {
 	}
 
 	private boolean isMatch2(String s, int i, String p, int j) {
-		if (j == p.length()) {
-			return i == s.length();
-		}
+		if (j == p.length()) { return i == s.length(); }
 
 		if (i == s.length()) {
-			for (; j < p.length() - 1 && p.charAt(j) != '*'
-					&& p.charAt(j + 1) == '*'; j += 2)
-				;
+			for (; j < p.length() - 1 && p.charAt(j) != '*' && p.charAt(j + 1) == '*'; j += 2);
 			return j == p.length();
 		}
 
 		char sch = s.charAt(i);
 		char pch = p.charAt(j);
 
-		if (j == p.length() - 1) {
-			return (i == s.length() - 1) && (pch == '.' || pch == sch);
-		}
+		if (j == p.length() - 1) { return (i == s.length() - 1) && (pch == '.' || pch == sch); }
 
 		char pchn = p.charAt(j + 1);
 		if (pchn == '*') {
@@ -88,42 +79,34 @@ public class RegularExpressionMatching {
 			}
 		}
 	}
-	
-	public boolean isMatch3(String s, String p){
+
+	public boolean isMatch3(String s, String p) {
 		return isMatch3(s, 0, p, 0);
 	}
-	
+
 	private boolean isMatch3(String s, int i, String p, int j) {
-		if (j == p.length()) {
-			return i == s.length();
-		}
+		if (j == p.length()) { return i == s.length(); }
 
 		if (i == s.length()) {
-			for (; j < p.length() - 1 && p.charAt(j) != '*'
-					&& p.charAt(j + 1) == '*'; j += 2)
-				;
+			for (; j < p.length() - 1 && p.charAt(j) != '*' && p.charAt(j + 1) == '*'; j += 2);
 			return j == p.length();
 		}
 
 		char sch = s.charAt(i);
 		char pch = p.charAt(j);
 
-		if (j == p.length() - 1) {
-			return (i == s.length() - 1) && (pch == '.' || pch == sch);
-		}
+		if (j == p.length() - 1) { return (i == s.length() - 1) && (pch == '.' || pch == sch); }
 
 		char pchn = p.charAt(j + 1);
 		if (pchn == '*') {
 			int cnt = 0;
-			if(pch == '.'){
+			if (pch == '.') {
 				cnt = s.length() - i;
-			}else{
-				for(int k = i; k < s.length() && s.charAt(k) == pch; k++, cnt++);
+			} else {
+				for (int k = i; k < s.length() && s.charAt(k) == pch; k++, cnt++);
 			}
-			for(int k = cnt; k >= 0; k--){
-				if(isMatch3(s, i + k, p, j + 2)){
-					return true;
-				}
+			for (int k = cnt; k >= 0; k--) {
+				if (isMatch3(s, i + k, p, j + 2)) { return true; }
 			}
 			return false;
 		} else {
@@ -134,47 +117,47 @@ public class RegularExpressionMatching {
 			}
 		}
 	}
-	
-	public boolean isMatch4(String s, String p){
+
+	public boolean isMatch4(String s, String p) {
 		int slen = s.length();
 		int plen = p.length();
 
 		boolean[][] mat = new boolean[slen + 1][plen + 1];
 		mat[0][0] = true;
-		for(int i = 1; i <= slen; i++){
+		for (int i = 1; i <= slen; i++) {
 			mat[i][0] = false;
 		}
 
 		int cur = 0;
-		for(; cur < plen - 1 && p.charAt(cur) != '*' && p.charAt(cur + 1) == '*'; cur += 2);
-		for(int j = 1; j < cur + 1; j += 2){
+		for (; cur < plen - 1 && p.charAt(cur) != '*' && p.charAt(cur + 1) == '*'; cur += 2);
+		for (int j = 1; j < cur + 1; j += 2) {
 			mat[0][j] = false;
 		}
-		for(int j = 2; j < cur + 1; j += 2){
+		for (int j = 2; j < cur + 1; j += 2) {
 			mat[0][j] = true;
 		}
-		for(int j = cur + 1; j <= plen; j++){
+		for (int j = cur + 1; j <= plen; j++) {
 			mat[0][j] = false;
 		}
 
-		for(int i = 1; i <= slen; i++){
-			for(int j = 1; j <= plen; j++){
+		for (int i = 1; i <= slen; i++) {
+			for (int j = 1; j <= plen; j++) {
 				char pch = p.charAt(j - 1);
-				if(pch == '*'){
+				if (pch == '*') {
 					char pchf = p.charAt(j - 2);
 					mat[i][j] = mat[i][j - 2];
-					if(pchf == '.'){
-						for(int k = i - 1; !mat[i][j] && k >= 0; k--){
+					if (pchf == '.') {
+						for (int k = i - 1; !mat[i][j] && k >= 0; k--) {
 							mat[i][j] = mat[i][j] || mat[k][j - 2];
 						}
-					}else{
-						for(int k = i - 1; !mat[i][j] && k >= 0 && s.charAt(k) == pchf; k--){
+					} else {
+						for (int k = i - 1; !mat[i][j] && k >= 0 && s.charAt(k) == pchf; k--) {
 							mat[i][j] = mat[i][j] || mat[k][j - 2];
 						}
-					}					
-				}else if(pch == '.'){
+					}
+				} else if (pch == '.') {
 					mat[i][j] = mat[i - 1][j - 1];
-				}else{
+				} else {
 					mat[i][j] = mat[i - 1][j - 1] && (s.charAt(i - 1) == pch);
 				}
 			}

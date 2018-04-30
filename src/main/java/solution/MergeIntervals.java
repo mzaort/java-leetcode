@@ -7,16 +7,15 @@ import java.util.Comparator;
 public class MergeIntervals {
 	public static void main(String[] args) {
 		ArrayList<Interval> res = new ArrayList<Interval>();
-		res.add(new Interval(1,4));
-		res.add(new Interval(2,5));
+		res.add(new Interval(1, 4));
+		res.add(new Interval(2, 5));
 		System.out.println(new MergeIntervals().Wrongmerge2(res));
 	}
-	
+
 	public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (intervals == null || intervals.size() == 0)
-			return intervals;
+		if (intervals == null || intervals.size() == 0) return intervals;
 		Collections.sort(intervals, new IntervalComparator());
 		ArrayList<Interval> res = new ArrayList<Interval>();
 
@@ -39,8 +38,7 @@ public class MergeIntervals {
 	public ArrayList<Interval> Wrongmerge2(ArrayList<Interval> intervals) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (intervals == null || intervals.size() == 0)
-			return intervals;
+		if (intervals == null || intervals.size() == 0) return intervals;
 
 		int max = -1;
 		for (Interval e : intervals) {
@@ -81,8 +79,8 @@ public class MergeIntervals {
 				}
 			}
 		}
-		
-		if(bitmask[max] == 1){
+
+		if (bitmask[max] == 1) {
 			it.end = max;
 			res.add(it);
 		}

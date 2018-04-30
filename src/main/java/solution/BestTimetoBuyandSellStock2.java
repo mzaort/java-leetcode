@@ -4,15 +4,13 @@ public class BestTimetoBuyandSellStock2 {
 
 	public static void main(String[] args) {
 		int[] prices = { 1, 2, 4 };
-		System.out.println(new BestTimetoBuyandSellStock2()
-				.maxProfit(prices));
+		System.out.println(new BestTimetoBuyandSellStock2().maxProfit(prices));
 	}
 
 	public int maxProfit(int[] prices) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (prices.length <= 1)
-			return 0;
+		if (prices.length <= 1) return 0;
 		return maxProfit(prices, 0, 0, 0);
 	}
 

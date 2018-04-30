@@ -1,14 +1,15 @@
 package microsoft;
-public class MaxTreeLength{
-	public int maxLength(TreeNode root){
+
+public class MaxTreeLength {
+	public int maxLength(TreeNode root) {
 		height(root);
 		return max(root);
 	}
-	
-	public int height(TreeNode root){
-		if(root == null){
+
+	public int height(TreeNode root) {
+		if (root == null) {
 			return 0;
-		}else{
+		} else {
 			int left = height(root.left);
 			int right = height(root.right);
 			root.val = 1 + (left > right ? left : right);
@@ -16,26 +17,26 @@ public class MaxTreeLength{
 		}
 	}
 
-	public int max(TreeNode root){
-		if(root == null) return 0;
+	public int max(TreeNode root) {
+		if (root == null) return 0;
 		int left = max(root.left);
 		int right = max(root.right);
 		int mid = 0;
-		if(root.left != null){
+		if (root.left != null) {
 			mid += root.left.val + 1;
 		}
-		if(root.right != null){
+		if (root.right != null) {
 			mid += root.right.val + 1;
 		}
 		int res = left;
-		if(res < right) res = right;
-		if(res < mid) res = mid;
+		if (res < right) res = right;
+		if (res < mid) res = mid;
 		return res;
 	}
-	
-	public int[] maxLength2(TreeNode root){
-		int[] res = {-1, -1};
-		if(root != null){
+
+	public int[] maxLength2(TreeNode root) {
+		int[] res = { -1, -1 };
+		if (root != null) {
 			int[] left = maxLength2(root.left);
 			int[] right = maxLength2(root.right);
 			res[0] = Math.max(left[0], right[0]) + 1;

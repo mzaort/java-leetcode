@@ -4,8 +4,7 @@ public class PartitionList {
 	public ListNode partition(ListNode head, int x) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (head == null || head.next == null)
-			return head;
+		if (head == null || head.next == null) return head;
 		ListNode p, q, r, t;
 		ListNode first = new ListNode(0);
 		first.next = head;

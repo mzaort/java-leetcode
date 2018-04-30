@@ -3,17 +3,16 @@ package microsoft;
 import java.util.*;
 
 public class CombinationSum {
-	
+
 	public static void main(String[] args) {
-		int[] candidates = {8,7,4,3};
+		int[] candidates = { 8, 7, 4, 3 };
 		CombinationSum cs = new CombinationSum();
 		System.out.println(cs.combinationSum(candidates, 11));
 	}
-	
+
 	public int combinationSum2(int[] candidates, int target) {
 		int len = candidates.length;
-		if (len == 0)
-			return 0;
+		if (len == 0) return 0;
 		Arrays.sort(candidates);
 		return combinationSum2(candidates, target, len - 1);
 	}
@@ -29,24 +28,20 @@ public class CombinationSum {
 				num--;
 			}
 			for (int i = num; i >= 0; i--) {
-				res += combinationSum2(candidates,
-						target - i * candidates[cur], cur - 1);
+				res += combinationSum2(candidates, target - i * candidates[cur], cur - 1);
 			}
 			return res;
 		}
 	}
 
-	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates,
-			int target) {
+	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
 		int len = candidates.length;
-		if (len == 0)
-			return new ArrayList<ArrayList<Integer>>(0);
+		if (len == 0) return new ArrayList<ArrayList<Integer>>(0);
 		Arrays.sort(candidates);
 		return combinationSum(candidates, target, len - 1);
 	}
 
-	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates,
-			int target, int cur) {
+	public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target, int cur) {
 		ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
 		if (cur == 0) {
 			if (target % candidates[0] == 0) {
@@ -64,8 +59,7 @@ public class CombinationSum {
 				num--;
 			}
 			for (int i = 0; i <= num; i++) {
-				ArrayList<ArrayList<Integer>> tmp = combinationSum(candidates,
-						target - i * candidates[cur], cur - 1);
+				ArrayList<ArrayList<Integer>> tmp = combinationSum(candidates, target - i * candidates[cur], cur - 1);
 				for (ArrayList<Integer> e : tmp) {
 					ArrayList<Integer> list = new ArrayList<Integer>();
 					list.addAll(e);
@@ -78,11 +72,11 @@ public class CombinationSum {
 			if (target % candidates[cur] == 0) {
 				num = target / candidates[cur];
 				ArrayList<Integer> list = new ArrayList<Integer>();
-				for(int i = 0; i < num; i++){
+				for (int i = 0; i < num; i++) {
 					list.add(candidates[cur]);
 				}
 				res.add(list);
-			}			
+			}
 			return res;
 		}
 	}

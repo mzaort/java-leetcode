@@ -10,7 +10,7 @@ public class Heap {
 	}
 
 	private void maxHeapify(int[] A) {
-		for(int i = (A.length - 2) / 2; i >= 0; i--){		
+		for (int i = (A.length - 2) / 2; i >= 0; i--) {
 			maxHeapify(A, i, A.length);
 		}
 	}
@@ -19,8 +19,7 @@ public class Heap {
 		int val = A[cur];
 		int i = cur;
 		for (int j = 2 * i + 1; j < len; i = j, j = 2 * i + 1) {
-			if (j + 1 < len && A[j] < A[j + 1])
-				j++;
+			if (j + 1 < len && A[j] < A[j + 1]) j++;
 			if (A[j] > val) {
 				A[i] = A[j];
 			} else {
@@ -35,14 +34,14 @@ public class Heap {
 		A[i] = A[j];
 		A[j] = tmp;
 	}
-	
-	public int[] minTopK(int[] A, int k){
-		assert(k > 0 && k <= A.length);
+
+	public int[] minTopK(int[] A, int k) {
+		assert (k > 0 && k <= A.length);
 		int[] heap = new int[k];
 		System.arraycopy(A, 0, heap, 0, k);
 		maxHeapify(heap);
-		for(int i = k; i < A.length; i++){
-			if(A[i] < heap[0]){
+		for (int i = k; i < A.length; i++) {
+			if (A[i] < heap[0]) {
 				heap[0] = A[i];
 				maxHeapify(heap, 0, heap.length);
 			}

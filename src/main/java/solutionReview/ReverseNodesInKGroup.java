@@ -11,29 +11,29 @@ public class ReverseNodesInKGroup {
 		ReverseNodesInKGroup rn = new ReverseNodesInKGroup();
 		ListNode res = rn.reverseKGroup(n1, 3);
 	}
-	
+
 	public ListNode reverseKGroup(ListNode head, int k) {
-		if(head == null || head.next == null || k <= 1) return head;
+		if (head == null || head.next == null || k <= 1) return head;
 		ListNode first = new ListNode(0);
 		first.next = head;
-		
+
 		ListNode p = first, q, r, t, s;
-		while(true){
+		while (true) {
 			q = p;
 			int cur = 0;
-			while(cur < k && q != null){
+			while (cur < k && q != null) {
 				cur++;
 				q = q.next;
-			}			
-			if(q == null){
+			}
+			if (q == null) {
 				break;
 			}
-			
+
 			r = p.next;
 			t = r.next;
 			r.next = q.next;
 			q.next = null;
-			while(t != null){
+			while (t != null) {
 				s = t.next;
 				t.next = p.next;
 				p.next = t;
@@ -41,6 +41,6 @@ public class ReverseNodesInKGroup {
 			}
 			p = r;
 		}
-		return first.next;		
+		return first.next;
 	}
 }

@@ -27,14 +27,13 @@ public class SolutionC {
 					map.put(opr[1], cur++);
 					graph.add(new ArrayList<Edge>());
 				}
-				int n1 = map.get(opr[0]), n2 = map.get(opr[1]), nval = Integer
-						.parseInt(opr[2]);
+				int n1 = map.get(opr[0]), n2 = map.get(opr[1]), nval = Integer.parseInt(opr[2]);
 				graph.get(n1).add(new Edge(n2, nval));
 				graph.get(n2).add(new Edge(n1, nval));
 			}
 			pwr.println("Case #" + k + ":");
 			int q = Integer.parseInt(sin.nextLine());
-			
+
 			for (int i = 0; i < q; i++) {
 				String equation = sin.nextLine();
 				String[] opr = equation.split("\\+");
@@ -53,17 +52,16 @@ public class SolutionC {
 		pwr.close();
 	}
 
-	private boolean dfs(ArrayList<ArrayList<Edge>> graph, int n1, int n2,
-			State[] states) {
+	private boolean dfs(ArrayList<ArrayList<Edge>> graph, int n1, int n2, State[] states) {
 		if (n1 == n2 && !states[n2].positive) return true;
 		State sn1 = states[n1];
 		for (Edge e : graph.get(n1)) {
 			if (states[e.node] == null) {
 				states[e.node] = new State(1, e.val - sn1.val, !sn1.positive);
-				if (dfs(graph, e.node, n2, states))	return true;
-			}else if(states[e.node].visited == 1 && states[e.node].positive == sn1.positive){
+				if (dfs(graph, e.node, n2, states)) return true;
+			} else if (states[e.node].visited == 1 && states[e.node].positive == sn1.positive) {
 				states[e.node] = new State(2, e.val - sn1.val, !sn1.positive);
-				if (dfs(graph, e.node, n2, states))	return true;
+				if (dfs(graph, e.node, n2, states)) return true;
 			}
 		}
 		return false;
@@ -73,7 +71,6 @@ public class SolutionC {
 		int visited;
 		int val;
 		boolean positive;
-		
 
 		public State(int visited, int val, boolean positive) {
 			super();

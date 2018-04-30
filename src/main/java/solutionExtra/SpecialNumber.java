@@ -15,8 +15,8 @@ public class SpecialNumber {
 	}
 
 	/**
-	 * Ò»¸öÕûÐÍÊý×éÀï³ýÁË1¸öÊý×ÖÖ»³öÏÖÒ»´ÎÖ®Íâ£¬
-	 * ÆäËûµÄÊý×Ö¶¼³öÏÖÁËÅ¼Êý´Î¡£ÇëÐ´³ö³ÌÐòÕÒ³öÕâ¸öÖ»³öÏÖ1´ÎµÄÊý×Ö¡£ÒªÇóÊ±¼ä¸´ÔÓ¶ÈÊÇO(n)£¬¿Õ¼ä¸´ÔÓ¶ÈÊÇO(1)¡£
+	 * Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö®ï¿½â£¬
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½Î¡ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½1ï¿½Îµï¿½ï¿½ï¿½ï¿½Ö¡ï¿½Òªï¿½ï¿½Ê±ï¿½ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(n)ï¿½ï¿½ï¿½Õ¼ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(1)ï¿½ï¿½
 	 */
 	public int appearOnce(int[] data) {
 		int res = 0;
@@ -27,8 +27,8 @@ public class SpecialNumber {
 	}
 
 	/**
-	 * Ò»¸öÕûÐÍÊý×éÀï³ýÁË2¸öÊý×ÖÖ»³öÏÖÒ»´ÎÖ®Íâ£¬
-	 * ÆäËûµÄÊý×Ö¶¼³öÏÖÁËÅ¼Êý´Î¡£ÇëÐ´³ö³ÌÐòÕÒ³öÕâ¸öÖ»³öÏÖ1´ÎµÄÊý×Ö¡£ÒªÇóÊ±¼ä¸´ÔÓ¶ÈÊÇO(n)£¬¿Õ¼ä¸´ÔÓ¶ÈÊÇO(1)¡£
+	 * Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö®ï¿½â£¬
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½Î¡ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½1ï¿½Îµï¿½ï¿½ï¿½ï¿½Ö¡ï¿½Òªï¿½ï¿½Ê±ï¿½ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(n)ï¿½ï¿½ï¿½Õ¼ä¸´ï¿½Ó¶ï¿½ï¿½ï¿½O(1)ï¿½ï¿½
 	 */
 	public int[] appearOnceWithTwo(int[] data) {
 		int[] res = new int[2];
@@ -56,7 +56,7 @@ public class SpecialNumber {
 
 		return res;
 	}
-	
+
 	public int[] appearOnceWithTwo2(int[] data) {
 		int[] res = new int[2];
 

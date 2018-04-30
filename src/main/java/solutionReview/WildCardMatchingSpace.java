@@ -5,7 +5,7 @@ public class WildCardMatchingSpace {
 		WildCardMatchingSpace wm = new WildCardMatchingSpace();
 		System.out.println(wm.isMatch("John Smith", "J*S*"));
 	}
-	
+
 	public boolean isMatch(String s, String p) {
 		int slen = s.length();
 		int plen = p.length();
@@ -20,17 +20,15 @@ public class WildCardMatchingSpace {
 			}
 			char sch = s.charAt(i);
 			if (j == plen
-					|| (Character.isLetter(p.charAt(j)) && ((Character
-							.isLetter(sch) && sch != p.charAt(j)) || sch == ' '))
+					|| (Character.isLetter(p.charAt(j))
+							&& ((Character.isLetter(sch) && sch != p.charAt(j)) || sch == ' '))
 					|| (p.charAt(j) == '?' && s.charAt(i) == ' ')
 					|| (p.charAt(j) == ' ' && Character.isLetter(s.charAt(i)))) {
 				if (star == -1) {
 					return false;
 				} else {
 					j = star + 1;
-					if (sp < slen && s.charAt(sp) == ' ') {
-						return false;
-					}
+					if (sp < slen && s.charAt(sp) == ' ') { return false; }
 					i = ++sp;
 				}
 			} else {

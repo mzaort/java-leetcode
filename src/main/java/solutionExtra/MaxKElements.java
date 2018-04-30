@@ -4,8 +4,7 @@ public class MaxKElements {
 
 	public int[] findMaxKElements(int[] A, int k) {
 		int len = A.length;
-		if (k <= 0 || k > len)
-			return new int[0];
+		if (k <= 0 || k > len) return new int[0];
 
 		int[] res = new int[k];
 
@@ -22,6 +21,6 @@ public class MaxKElements {
 	}
 
 	private void buildMaxHeap(int[] a, int len) {
-		
+
 	}
 }

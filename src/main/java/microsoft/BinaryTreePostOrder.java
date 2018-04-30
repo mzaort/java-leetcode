@@ -23,18 +23,14 @@ public class BinaryTreePostOrder {
 		} else {
 			int pivot = arr[end];
 			int cur = frm;
-			for (; arr[cur] < pivot; cur++)
-				;
+			for (; arr[cur] < pivot; cur++);
 			if (cur == end) {
 				return isBinarySearchTree(arr, frm, end - 1);
 			} else {
 				for (int i = cur; i < end; i++) {
-					if (arr[i] <= pivot) {
-						return false;
-					}
+					if (arr[i] <= pivot) { return false; }
 				}
-				return isBinarySearchTree(arr, frm, cur - 1)
-						&& isBinarySearchTree(arr, cur, end - 1);
+				return isBinarySearchTree(arr, frm, cur - 1) && isBinarySearchTree(arr, cur, end - 1);
 			}
 		}
 	}

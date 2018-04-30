@@ -1,4 +1,5 @@
 package microsoft;
+
 class ListNode {
 	int val;
 	ListNode next;

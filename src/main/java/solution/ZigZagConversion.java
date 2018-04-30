@@ -1,17 +1,15 @@
 package solution;
 
 public class ZigZagConversion {
-	
+
 	public static void main(String[] args) {
 		ZigZagConversion zz = new ZigZagConversion();
 		System.out.println(zz.convert("PAYPALISHIRING", 2));
 	}
-	
+
 	public String convert(String s, int nRows) {
-		// Start typing your Java solution below
-		// DO NOT write main() function
-		if(nRows == 1)
-			return s;
+
+		if (nRows == 1) return s;
 		int length = s.length() / 2 + nRows;
 		char[] cstr = s.toCharArray();
 		int[][] mat = new int[nRows][length];
@@ -36,7 +34,7 @@ public class ZigZagConversion {
 		for (int i = 0; i < nRows; i++) {
 			for (int j = 0; j < length; j++) {
 				if (mat[i][j] != -1) {
-					resStr.append((char)mat[i][j]);
+					resStr.append((char) mat[i][j]);
 				}
 			}
 		}

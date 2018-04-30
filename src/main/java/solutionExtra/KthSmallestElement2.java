@@ -9,11 +9,10 @@ public class KthSmallestElement2 {
 		System.out.println(kse.kthSmallest2(C, 7));
 	}
 
-	
 	public int findKthSmallestElement(int[] A, int k) {
 		int len = A.length;
-		if(k < 1 && k > len) return -2;
-		
+		if (k < 1 && k > len) return -2;
+
 		return findKthSmallestElement(A, 0, len - 1, k);
 	}
 
@@ -50,17 +49,17 @@ public class KthSmallestElement2 {
 		a[i] = a[j];
 		a[j] = tmp;
 	}
-	
-	public int kthSmallest2(int[] A, int k){
-		assert(k > 0 && k < A.length);
+
+	public int kthSmallest2(int[] A, int k) {
+		assert (k > 0 && k < A.length);
 		int frm = 0, end = A.length - 1;
-		while(frm <= end){
+		while (frm <= end) {
 			int p = partition(A, frm, end);
-			if(p == k - 1){
+			if (p == k - 1) {
 				return A[k - 1];
-			}else if(p < k){
+			} else if (p < k) {
 				frm = p + 1;
-			}else{
+			} else {
 				end = p - 1;
 			}
 		}

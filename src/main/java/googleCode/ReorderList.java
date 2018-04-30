@@ -1,7 +1,7 @@
 package googleCode;
 
 public class ReorderList {
-	
+
 	public static void main(String[] args) {
 		ReorderList rl = new ReorderList();
 		ListNode ln1 = new ListNode(1);
@@ -18,44 +18,44 @@ public class ReorderList {
 		ln5.next = ln6;
 		ln6.next = ln7;
 		ln7.next = null;
-		
+
 		rl.reorderList(ln1);
-		
-		for(ListNode p = ln1; p != null; p = p.next){
+
+		for (ListNode p = ln1; p != null; p = p.next) {
 			System.out.println(p.val + ".");
 		}
-		
+
 	}
-	
-    public void reorderList(ListNode head) {
-    	if(head == null || head.next == null || head.next.next == null) return;
-    	ListNode p = head, q = head;
-    	for(; p.next != null && p.next.next != null; p = p.next.next, q = q.next);
-    	
-    	ListNode head2 = q.next;
-    	q.next = null;
-    	
-    	ListNode reverse2 = null;
-    	p = head2;
-    	while(p != null){
-    		q = p.next;
-    		p.next = reverse2;
-    		reverse2 = p;
-    		p = q;
-    	}
-    	
-    	p = head.next;
-    	q = reverse2;
-    	ListNode r = head, r1, r2;
-    	while(p != null && q != null){
-    		r1 = p.next;
-    		r2 = q.next;
-    		r.next = q;
-    		q.next = p;
-    		r = p;
-    		p = r1;
-    		q = r2;
-    	}
-    	if(q != null) r.next = q;
-    }
+
+	public void reorderList(ListNode head) {
+		if (head == null || head.next == null || head.next.next == null) return;
+		ListNode p = head, q = head;
+		for (; p.next != null && p.next.next != null; p = p.next.next, q = q.next);
+
+		ListNode head2 = q.next;
+		q.next = null;
+
+		ListNode reverse2 = null;
+		p = head2;
+		while (p != null) {
+			q = p.next;
+			p.next = reverse2;
+			reverse2 = p;
+			p = q;
+		}
+
+		p = head.next;
+		q = reverse2;
+		ListNode r = head, r1, r2;
+		while (p != null && q != null) {
+			r1 = p.next;
+			r2 = q.next;
+			r.next = q;
+			q.next = p;
+			r = p;
+			p = r1;
+			q = r2;
+		}
+		if (q != null) r.next = q;
+	}
 }

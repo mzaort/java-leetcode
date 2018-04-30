@@ -1,4 +1,5 @@
 package googleCode;
+
 class ListNode {
 	int val;
 	ListNode next;

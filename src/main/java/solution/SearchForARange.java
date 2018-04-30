@@ -5,8 +5,7 @@ public class SearchForARange {
 	public int[] searchRange(int[] A, int target) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (A.length == 0)
-			return new int[] { -1, -1 };
+		if (A.length == 0) return new int[] { -1, -1 };
 
 		int left = 0, right = A.length - 1;
 		while (left <= right) {

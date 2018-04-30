@@ -9,8 +9,9 @@ public class ConsecutiveSequence {
 		System.out.println(cs.numOfSequence2(3));
 		System.out.println(cs.FindContinuesSequence(3));
 		cs.FindContinuesSequence(15);
-		for(int i = 3; i < 100; i++){
-			System.out.println(cs.numOfSequence(i) + " "  + cs.FindContinuesSequence2(i) + " " + (cs.numOfSequence(i) == cs.FindContinuesSequence2(i)));
+		for (int i = 3; i < 100; i++) {
+			System.out.println(cs.numOfSequence(i) + " " + cs.FindContinuesSequence2(i) + " "
+					+ (cs.numOfSequence(i) == cs.FindContinuesSequence2(i)));
 		}
 	}
 
@@ -21,18 +22,16 @@ public class ConsecutiveSequence {
 			if ((i & 1) == 0) {
 				if (n % (i / 2) == 0) {
 					int tmp = n / (i / 2);
-					if ((tmp & 1) == 1)
-						res++;
+					if ((tmp & 1) == 1) res++;
 				}
 			} else {
-				if (n % i == 0)
-					res++;
+				if (n % i == 0) res++;
 			}
 		}
 		return res;
 	}
 
-	//wrong when it is 3
+	// wrong when it is 3
 	public int FindContinuesSequence(int n) {
 		int small = 1;
 		int big = 2;
@@ -40,34 +39,32 @@ public class ConsecutiveSequence {
 		int sum = small + big;
 		int res = 0;
 		while (small < middle) {
-			// sum==n£¬Ö±½ÓÊä³öÐòÁÐ
-			if (sum == n)
-				res++;
-			// sum>n£¬smallÏòÓÒÒÆ£¬Ö±ÖÁsum<=n
+			// sum==nï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			if (sum == n) res++;
+			// sum>nï¿½ï¿½smallï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½Ö±ï¿½ï¿½sum<=n
 			while (sum > n) {
 				sum -= small;
 				small++;
-				if (sum == n)
-					res++;
+				if (sum == n) res++;
 			}
-			// sum<n£¬bigÏòÓÒÒÆ
+			// sum<nï¿½ï¿½bigï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			big++;
 			sum += big;
 		}
 		return res;
 	}
-	
-	public int FindContinuesSequence2(int n){
-		assert(n > 0);
+
+	public int FindContinuesSequence2(int n) {
+		assert (n > 0);
 		int ans = 0;
 		int left = 1, right = 2, limit = (n + 1) / 2;
 		int sum = left + right;
-		while(left < limit){
-			while(sum > n){
+		while (left < limit) {
+			while (sum > n) {
 				sum -= left;
 				left++;
 			}
-			if(sum == n) {
+			if (sum == n) {
 				ans++;
 				sum -= left;
 				left++;

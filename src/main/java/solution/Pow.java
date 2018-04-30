@@ -15,9 +15,8 @@ public class Pow {
 		int abs = n > 0 ? n : -n;
 
 		double res = 1, tmp = x;
-		while(abs > 0) {
-			if ((abs & 1) == 1)
-				res *= tmp;
+		while (abs > 0) {
+			if ((abs & 1) == 1) res *= tmp;
 			tmp = tmp * tmp;
 			abs >>= 1;
 		}

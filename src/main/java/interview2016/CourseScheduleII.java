@@ -67,10 +67,10 @@ public class CourseScheduleII {
 			graph.get(e[0]).add(e[1]);
 		}
 		LinkedList<Integer> courses = new LinkedList<>();
-		if (isTopological(courses, graph, new int[numCourses])){
+		if (isTopological(courses, graph, new int[numCourses])) {
 			int[] result = new int[numCourses];
 			Iterator<Integer> iterator = courses.iterator();
-			for(int i = numCourses - 1; i >= 0 && iterator.hasNext(); i--){
+			for (int i = numCourses - 1; i >= 0 && iterator.hasNext(); i--) {
 				result[i] = iterator.next();
 			}
 			return result;
@@ -98,19 +98,22 @@ public class CourseScheduleII {
 		courses.offerFirst(i);
 		return true;
 	}
-	
+
 	public int[] findOrder3(int numCourses, int[][] prerequisites) {
 		ArrayList<LinkedList<Integer>> graph = new ArrayList<LinkedList<Integer>>(numCourses);
-		for(int i = 0; i < numCourses; i++) graph.add(new LinkedList<Integer>());
-		for(int[] e:prerequisites) graph.get(e[1]).add(e[0]);
+		for (int i = 0; i < numCourses; i++)
+			graph.add(new LinkedList<Integer>());
+		for (int[] e : prerequisites)
+			graph.get(e[1]).add(e[0]);
 		LinkedList<Integer> res = new LinkedList<Integer>();
-		return isTopological3(res, graph, new int[numCourses]) ? res.stream().mapToInt(e -> e.intValue()).toArray() : new int[0];
+		return isTopological3(res, graph, new int[numCourses]) ? res.stream().mapToInt(e -> e.intValue()).toArray()
+				: new int[0];
 	}
 
 	private boolean isTopological3(LinkedList<Integer> res, ArrayList<LinkedList<Integer>> graph, int[] color) {
-		for(int i = 0; i < color.length; i++){
-			if(color[i] == 0){
-				if(!isTopological3(res, graph, color, i)) return false;
+		for (int i = 0; i < color.length; i++) {
+			if (color[i] == 0) {
+				if (!isTopological3(res, graph, color, i)) return false;
 			}
 		}
 		return true;
@@ -118,16 +121,14 @@ public class CourseScheduleII {
 
 	private boolean isTopological3(LinkedList<Integer> res, ArrayList<LinkedList<Integer>> graph, int[] color, int i) {
 		color[i] = 1;
-		for(int e : graph.get(i)){
-			if(color[e] == 0){
-				if(!isTopological3(res, graph, color, e)) return false;
-			}else if(color[e] == 1){
-				return false;
-			}
+		for (int e : graph.get(i)) {
+			if (color[e] == 0) {
+				if (!isTopological3(res, graph, color, e)) return false;
+			} else if (color[e] == 1) { return false; }
 		}
 		res.offerFirst(i);
 		color[i] = 2;
 		return true;
 	}
-	
+
 }

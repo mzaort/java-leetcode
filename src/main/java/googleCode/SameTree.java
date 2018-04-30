@@ -16,9 +16,10 @@ public class SameTree {
 			}
 		}
 	}
-	
+
 	public boolean isSameTree2(TreeNode p, TreeNode q) {
-		if(p != null && q != null) return p.val == q.val && isSameTree2(p.left, q.left) && isSameTree2(p.right, q.right);
+		if (p != null && q != null)
+			return p.val == q.val && isSameTree2(p.left, q.left) && isSameTree2(p.right, q.right);
 		return p == null && q == null;
 	}
 }

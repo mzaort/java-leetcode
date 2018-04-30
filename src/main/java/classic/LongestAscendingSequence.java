@@ -19,8 +19,7 @@ public class LongestAscendingSequence {
 
 	public int longestSequenceLength(int[] A) {
 		int len = A.length;
-		if (len <= 1)
-			return len;
+		if (len <= 1) return len;
 
 		int[] res = new int[len];
 		res[0] = 1;
@@ -49,8 +48,7 @@ public class LongestAscendingSequence {
 
 	public int longestSequenceLength2(int[] A) {
 		int len = A.length;
-		if (len <= 1)
-			return len;
+		if (len <= 1) return len;
 
 		int[] B = new int[len];
 		B[0] = A[0];
@@ -86,8 +84,7 @@ public class LongestAscendingSequence {
 
 	public int[] longestSequence(int[] A) {
 		int len = A.length;
-		if (len <= 1)
-			return A.clone();
+		if (len <= 1) return A.clone();
 
 		int[] seq = new int[len];
 		int[] before = new int[len];

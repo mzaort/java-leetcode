@@ -43,8 +43,7 @@ public class SortColors {
 	public void sortColors2(int[] A) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
-		if (A == null || A.length == 0)
-			return;
+		if (A == null || A.length == 0) return;
 		int left = 0, right = A.length - 1, cur = 0;
 
 		while (cur <= right) {

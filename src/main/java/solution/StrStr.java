@@ -20,11 +20,11 @@ public class StrStr {
 
 		int len1 = haystack.length();
 		int len2 = needle.length();
-		
+
 		for (int index = 0; index <= len1 - len2; index++) {
 			int j = index, k = 0;
-			for(; k < len2 && haystack.charAt(j) == needle.charAt(k); k++, j++);
-			if(k == len2) return haystack.substring(index);
+			for (; k < len2 && haystack.charAt(j) == needle.charAt(k); k++, j++);
+			if (k == len2) return haystack.substring(index);
 		}
 		return null;
 	}
