@@ -2,7 +2,7 @@ package googleCode;
 
 import java.util.Arrays;
 
-public class Sum3Closet {
+public class Sum3Closest {
 	public int threeSumClosest(int[] num, int target) {
 		assert (num.length >= 3);
 		int res = num[0] + num[1] + num[2];

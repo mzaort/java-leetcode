@@ -6,7 +6,6 @@ public class RotateList {
 
 		ListNode first = new ListNode(0);
 		first.next = head;
-
 		int length = 0;
 		ListNode p = first;
 		for (; p.next != null; p = p.next, length++);

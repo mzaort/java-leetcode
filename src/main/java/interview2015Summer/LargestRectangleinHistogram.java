@@ -3,6 +3,7 @@ package interview2015Summer;
 import java.util.LinkedList;
 
 public class LargestRectangleinHistogram {
+	// wrong
 	public int largestRectangleArea(int[] height) {
 		int res = 0;
 		LinkedList<int[]> stack = new LinkedList<>();
